@@ -18,6 +18,6 @@ quick-sharun ./AppDir/bin/* /usr/bin/zenity
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
 
-# Test the app for 12 seconds, if the app fails due to the app
+# Test the app for 12 seconds, if the test fails due to the app
 # having issues running in the CI use --simple-test instead
 quick-sharun --test ./dist/*.AppImage
