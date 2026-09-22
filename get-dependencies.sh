@@ -21,8 +21,10 @@ echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 
+# Comment this out if you need an AUR package
 make-aur-package zenity-rs-bin
 
+# If the application needs to be manually built that has to be done down here
 echo "Making stable build of PaperBoat..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/HarbourMasters/PaperBoat"
@@ -32,7 +34,7 @@ echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
 cd ./PaperBoat
-patch -Np1 -i ../paperboat-config-path.patch
+patch -Np1 -i ../patches/001-paperboat-config-path.patch
 
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release -j"$(nproc)"
